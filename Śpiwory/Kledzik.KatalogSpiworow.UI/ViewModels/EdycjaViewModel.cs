@@ -14,13 +14,11 @@ namespace Kledzik.KatalogSpiworow.UI.ViewModels
     public class EdycjaViewModel : INotifyPropertyChanged
     {
         // POLA PRYWATNE
-        private LogikaKatalogu _logika; // Musimy to zapisać, żeby użyć w innej metodzie
+        private LogikaKatalogu _logika; 
 
         // WŁAŚCIWOŚCI
         public ISpiwor Spiwor { get; set; }
 
-        // Musimy powiadamiać o zmianie tej listy, więc dobrze by było, gdyby setter miał OnPropertyChanged
-        // ale w prostym przypadku przypisanie nowej listy i OnPropertyChanged("Producenci") w metodzie wystarczy.
         private List<IProducent> _producenci;
         public List<IProducent> Producenci
         {
@@ -54,14 +52,14 @@ namespace Kledzik.KatalogSpiworow.UI.ViewModels
         // KONSTRUKTOR
         public EdycjaViewModel(ISpiwor spiwor, LogikaKatalogu logika)
         {
-            _logika = logika; // <--- ZAPISUJEMY LOGIKĘ DO POLA
+            _logika = logika; 
             Spiwor = spiwor;
             Producenci = logika.PobierzWszystkichProducentow();
 
             WybranyProducent = Producenci.FirstOrDefault(p => p.Id == spiwor.ProducentId);
 
             ZapiszCommand = new RelayCommand(Zapisz);
-            DodajProducentaCommand = new RelayCommand(DodajProducenta); // <--- REJESTRACJA KOMENDY
+            DodajProducentaCommand = new RelayCommand(DodajProducenta); 
         }
 
         // METODA DODAWANIA PRODUCENTA
@@ -93,8 +91,6 @@ namespace Kledzik.KatalogSpiworow.UI.ViewModels
         {
             if (Spiwor is IDataErrorInfo info)
             {
-                // Sprawdzamy kluczowe pola
-                // UWAGA: Usunąłem średnik po nawiasie zamykającym if (...)
                 if (!string.IsNullOrEmpty(info["Cena"]) ||
                     !string.IsNullOrEmpty(info["Masa"]) ||
                     !string.IsNullOrEmpty(info["Temperatura"]) ||

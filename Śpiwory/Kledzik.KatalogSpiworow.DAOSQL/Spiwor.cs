@@ -54,8 +54,6 @@ namespace Kledzik.KatalogSpiworow.DAOSQL
                         break;
 
                     case nameof(ProducentId):
-                        // Zakładamy, że ID producentów w bazie zaczynają się od 1.
-                        // 0 oznacza, że nic nie wybrano (int domyślnie ma 0).
                         if (ProducentId <= 0)
                             wynik = "Musisz wybrać producenta!";
                         break;

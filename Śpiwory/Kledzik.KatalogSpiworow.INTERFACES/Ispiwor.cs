@@ -16,7 +16,7 @@ namespace Kledzik.KatalogSpiworow.Interfaces
         int ProducentId { get; set; }
     
         int Masa { get; set; }          // w gramach
-        double Temperatura { get; set; } // Optymalna
+        double Temperatura { get; set; } // w stopniach celsjusza
         double Objetosc { get; set; }    // w litrach
 
 

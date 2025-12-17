@@ -29,7 +29,6 @@ namespace Kledzik.KatalogSpiworow.UI
         {
             this.DataContext = vm;
 
-            // Mówimy ViewModelowi: "Jak będziesz chciał zamknąć, wywołaj tę funkcję"
             vm.ZamknijOkno = () =>
             {
                 this.DialogResult = true;

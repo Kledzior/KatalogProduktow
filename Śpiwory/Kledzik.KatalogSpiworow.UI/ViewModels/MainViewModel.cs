@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq; // Ważne do filtrowania!
+using System.Linq; 
 using System.Runtime.CompilerServices;
 using Kledzik.KatalogSpiworow.BL;
 using Kledzik.KatalogSpiworow.Interfaces;
@@ -37,7 +37,7 @@ namespace Kledzik.KatalogSpiworow.UI.ViewModels
             {
                 _tekstFiltra = value;
                 OnPropertyChanged();
-                FiltrujDane(); // Automatycznie filtrujemy przy każdej zmianie litery!
+                FiltrujDane();
             }
         }
 
@@ -93,13 +93,7 @@ namespace Kledzik.KatalogSpiworow.UI.ViewModels
         {
             if (obj is ISpiwor spiworDoEdycji)
             {
-                // ⚠️ WAŻNE: Robimy kopię danych przed edycją!
-                // Gdybyśmy edytowali oryginał, zmiany widoczne byłyby w tabeli 
-                // nawet jak użytkownik kliknie "Anuluj".
-
-                // Tutaj dla uproszczenia (bo DAOMock jest w pamięci) edytujemy "na żywo", 
-                // ale w profesjonalnym podejściu klonuje się obiekt.
-                // Przyjmijmy wersję prostą:
+                
 
                 if (OtworzOknoEdycji(spiworDoEdycji))
                 {
@@ -118,7 +112,6 @@ namespace Kledzik.KatalogSpiworow.UI.ViewModels
 
             okno.PrzypiszViewModel(vm);
 
-            // ShowDialog zwraca true tylko jak ustawimy DialogResult = true (w przycisku Zapisz)
             return okno.ShowDialog() == true;
         }
         private void FiltrujDane()
