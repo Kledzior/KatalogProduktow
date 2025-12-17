@@ -32,7 +32,7 @@ namespace Kledzik.KatalogSpiworow.DAOMock
 
             _producenci.AddRange(new[] { p1, p2, p3, p4, p5, p6 });
 
-            // 2. TWORZENIE ŚPIWORÓW (Twoje dane z Excela)
+            // 2. TWORZENIE ŚPIWORÓW 
             _spiwory.Add(new Spiwor { Id = 1, ProducentId = 1, Model = "Quest 4TWO", Masa = 1100, Temperatura = 5, Objetosc = 5, Rodzaj = RodzajWypelnienia.Puch, Cena = 2359.00m });
             _spiwory.Add(new Spiwor { Id = 2, ProducentId = 2, Model = "Spark -1C/30F", Masa = 536, Temperatura = -1, Objetosc = 8, Rodzaj = RodzajWypelnienia.Puch, Cena = 1719.99m });
             _spiwory.Add(new Spiwor { Id = 3, ProducentId = 1, Model = "Core 550", Masa = 915, Temperatura = -9, Objetosc = 5, Rodzaj = RodzajWypelnienia.Puch, Cena = 1689.00m });

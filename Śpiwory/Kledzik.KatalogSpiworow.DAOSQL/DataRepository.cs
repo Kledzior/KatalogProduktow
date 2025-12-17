@@ -15,8 +15,7 @@ namespace Kledzik.KatalogSpiworow.DAOSQL
         {
             _context = new KatalogContext();
 
-            // To magiczna linijka dla projektów studenckich:
-            // "Jeśli plik bazy nie istnieje -> stwórz go i utwórz tabelki".
+
             _context.Database.EnsureCreated();
         }
 
@@ -24,7 +23,6 @@ namespace Kledzik.KatalogSpiworow.DAOSQL
 
         public List<IProducent> PobierzProducentow()
         {
-            // Pobieramy z bazy i rzutujemy na interfejs
             return _context.Producenci.ToList<IProducent>();
         }
 
@@ -35,7 +33,6 @@ namespace Kledzik.KatalogSpiworow.DAOSQL
 
         public void DodajProducenta(IProducent producent)
         {
-            // Rzutowanie na konkretną klasę (bo EF obsługuje klasę Producent, a nie interfejs)
             if (producent is Producent p)
             {
                 _context.Producenci.Add(p);
@@ -51,12 +48,10 @@ namespace Kledzik.KatalogSpiworow.DAOSQL
             var doUsuniecia = _context.Producenci.FirstOrDefault(x => x.Id == id);
             if (doUsuniecia != null)
             {
-                // Sprawdźmy, czy nie jest używany (opcjonalne, ale zalecane)
                 bool jestUzywany = _context.Spiwory.Any(s => s.ProducentId == id);
                 if (jestUzywany)
                 {
-                    // Tutaj w prawdziwej aplikacji rzucilibyśmy wyjątek lub wyświetlili komunikat.
-                    // Na potrzeby prostego projektu możemy po prostu nie usuwać.
+        
                     return;
                 }
 
@@ -107,10 +102,7 @@ namespace Kledzik.KatalogSpiworow.DAOSQL
         }
 
         public void EdytujSpiwor(ISpiwor spiwor)
-        {
-            // W EF Core, jeśli obiekt jest śledzony, zmiany zapiszą się same przy SaveChanges.
-            // Ale tutaj przychodzi obiekt z UI, który może nie być śledzony.
-            // Najbezpieczniej: pobierz oryginał z bazy i przepisz wartości.
+        { 
 
             var oryginal = _context.Spiwory.FirstOrDefault(x => x.Id == spiwor.Id);
             if (oryginal != null)
