@@ -1,0 +1,56 @@
+﻿<Window x:Class="Kledzik.KatalogSpiworow.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kledzik.KatalogSpiworow.UI"
+        mc:Ignorable="d"
+        Title="Katalog Śpiworów" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Katalog Śpiworów" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" />
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+            <Button Content="+ Dodaj Nowy" Command="{Binding DodajCommand}" 
+            Padding="10,2" Margin="0,0,20,0" Background="LightGreen" FontWeight="Bold"/>
+            <TextBlock Text="Szukaj modelu: " VerticalAlignment="Center"/>
+            <TextBox Width="200" Margin="5,0,0,0" Padding="2"
+                     Text="{Binding TekstFiltra, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" 
+                  ItemsSource="{Binding Spiwory}" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True"
+                  CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width="*" />
+                <DataGridTextColumn Header="Cena (PLN)" Binding="{Binding Cena, StringFormat=N2}" Width="100" />
+                <DataGridTextColumn Header="Masa (g)" Binding="{Binding Masa}" Width="80" />
+                <DataGridTextColumn Header="Temp. (°C)" Binding="{Binding Temperatura}" Width="80" />
+                <DataGridTextColumn Header="Wypełnienie" Binding="{Binding Rodzaj}" Width="100" />
+                <DataGridTemplateColumn Header="Akcje" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Edytuj" Margin="0,0,5,0"
+                        Command="{Binding DataContext.EdytujCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
+                        CommandParameter="{Binding}"/>
+
+                                <Button Content="Usuń" 
+                        Command="{Binding DataContext.UsunCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
+                        CommandParameter="{Binding}"
+                        Foreground="Red"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
