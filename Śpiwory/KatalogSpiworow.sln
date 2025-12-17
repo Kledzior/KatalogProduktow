@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kledzik.KatalogSpiworow.Core", "Kledzik.KatalogSpiworow.Core\Kledzik.KatalogSpiworow.Core.csproj", "{D5AB89B5-99D0-4BFD-A443-CC16690B28E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kledzik.KatalogSpiworow.Interfaces", "Kledzik.KatalogSpiworow.INTERFACES\Kledzik.KatalogSpiworow.Interfaces.csproj", "{324E0866-E9FF-46D0-A6F2-111096687E0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kledzik.KatalogSpiworow.DAOMock", "Kledzik.KatalogSpiworow.DAOMock\Kledzik.KatalogSpiworow.DAOMock.csproj", "{6575F69C-1656-440D-BD87-A141524229D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kledzik.KatalogSpiworow.BL", "Kledzik.KatalogSpiworow.BL\Kledzik.KatalogSpiworow.BL.csproj", "{90EEC3C0-D155-48E4-8724-FE51421F360D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kledzik.KatalogSpiworow.UI", "Kledzik.KatalogSpiworow.UI\Kledzik.KatalogSpiworow.UI.csproj", "{29E92FEE-9891-4BB0-A210-616916DAD9BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kledzik.KatalogSpiworow.DAOSQL", "Kledzik.KatalogSpiworow.DAOSQL\Kledzik.KatalogSpiworow.DAOSQL.csproj", "{F7BA949B-8386-4C7B-B5AD-A149247ED181}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5AB89B5-99D0-4BFD-A443-CC16690B28E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5AB89B5-99D0-4BFD-A443-CC16690B28E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5AB89B5-99D0-4BFD-A443-CC16690B28E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5AB89B5-99D0-4BFD-A443-CC16690B28E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{324E0866-E9FF-46D0-A6F2-111096687E0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{324E0866-E9FF-46D0-A6F2-111096687E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{324E0866-E9FF-46D0-A6F2-111096687E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{324E0866-E9FF-46D0-A6F2-111096687E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6575F69C-1656-440D-BD87-A141524229D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6575F69C-1656-440D-BD87-A141524229D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6575F69C-1656-440D-BD87-A141524229D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6575F69C-1656-440D-BD87-A141524229D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90EEC3C0-D155-48E4-8724-FE51421F360D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90EEC3C0-D155-48E4-8724-FE51421F360D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90EEC3C0-D155-48E4-8724-FE51421F360D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90EEC3C0-D155-48E4-8724-FE51421F360D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29E92FEE-9891-4BB0-A210-616916DAD9BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29E92FEE-9891-4BB0-A210-616916DAD9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29E92FEE-9891-4BB0-A210-616916DAD9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29E92FEE-9891-4BB0-A210-616916DAD9BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7BA949B-8386-4C7B-B5AD-A149247ED181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7BA949B-8386-4C7B-B5AD-A149247ED181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7BA949B-8386-4C7B-B5AD-A149247ED181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7BA949B-8386-4C7B-B5AD-A149247ED181}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F30A004-AA6E-4504-B337-F57814346E7F}
+	EndGlobalSection
+EndGlobal

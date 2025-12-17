@@ -1,0 +1,105 @@
+﻿<Window x:Class="Kledzik.KatalogSpiworow.UI.EdycjaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Edycja Śpiwora" Height="550" Width="550"
+        WindowStartupLocation="CenterScreen">
+
+    <AdornerDecorator>
+        <Grid Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.Resources>
+                <ControlTemplate x:Key="ErrorTemplate">
+                    <StackPanel Orientation="Vertical">
+                        <Border BorderBrush="Red" BorderThickness="2">
+                            <AdornedElementPlaceholder x:Name="controlWithError"/>
+                        </Border>
+
+                        <TextBlock Foreground="Red" FontSize="11" Margin="0,2,0,0" 
+                                   HorizontalAlignment="Left" TextWrapping="Wrap" MaxWidth="300"
+                                   Text="{Binding ElementName=controlWithError, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"/>
+                    </StackPanel>
+                </ControlTemplate>
+
+                <Style TargetType="TextBlock">
+                    <Setter Property="VerticalAlignment" Value="Top"/>
+                    <Setter Property="Margin" Value="0,4,10,0"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="0,0,0,30"/>
+                    <Setter Property="Padding" Value="3"/>
+                    <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ErrorTemplate}"/>
+                </Style>
+
+                <Style TargetType="ComboBox">
+                    <Setter Property="Margin" Value="0,0,0,30"/>
+                    <Setter Property="Padding" Value="3"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ErrorTemplate}"/>
+                </Style>
+            </Grid.Resources>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Model:"/>
+            <TextBox Grid.Row="0" Grid.Column="1" 
+                     Text="{Binding Spiwor.Model, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Cena (zł):"/>
+            <TextBox Grid.Row="1" Grid.Column="1" 
+                     Text="{Binding Spiwor.Cena, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Masa (g):"/>
+            <TextBox Grid.Row="2" Grid.Column="1" 
+                     Text="{Binding Spiwor.Masa, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Temperatura:"/>
+            <TextBox Grid.Row="3" Grid.Column="1" 
+                     Text="{Binding Spiwor.Temperatura, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Rodzaj:"/>
+            <ComboBox Grid.Row="4" Grid.Column="1"
+                      ItemsSource="{Binding RodzajeWypelnienia}"
+                      SelectedItem="{Binding Spiwor.Rodzaj}"/>
+
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Producent:"/>
+            <Grid Grid.Row="5" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox Grid.Column="0"
+                          ItemsSource="{Binding Producenci}"
+                          DisplayMemberPath="Nazwa"
+                          SelectedValuePath="Id"
+                          SelectedValue="{Binding Spiwor.ProducentId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <Button Grid.Column="1" Content="+" Command="{Binding DodajProducentaCommand}" 
+                        Width="30" Height="26" Margin="5,0,0,30" VerticalAlignment="Top"
+                        FontWeight="Bold" FontSize="16" Focusable="False"
+                        ToolTip="Dodaj nowego producenta"/>
+            </Grid>
+
+            <StackPanel Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" 
+                        Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Anuluj" IsCancel="True" Width="80" Margin="0,0,10,0" Height="30"/>
+                <Button Content="Zapisz" Command="{Binding ZapiszCommand}" Width="80" Height="30" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+    </AdornerDecorator>
+</Window>

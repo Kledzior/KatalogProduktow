@@ -1,0 +1,17 @@
+﻿<Window x:Class="Kledzik.KatalogSpiworow.UI.DodajProducentaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Nowy Producent" Height="150" Width="300"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
+
+    <StackPanel Margin="15">
+        <TextBlock Text="Podaj nazwę producenta:" FontWeight="Bold" Margin="0,0,0,5"/>
+
+        <TextBox x:Name="txtNazwa" Height="25" Margin="0,0,0,15"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Anuluj" IsCancel="True" Width="70" Margin="0,0,10,0" Click="BtnAnuluj_Click"/>
+            <Button Content="Dodaj" IsDefault="True" Width="70" FontWeight="Bold" Click="BtnDodaj_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
