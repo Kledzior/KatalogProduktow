@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Dodaj producenta";
+}
+
+<h1>Dodaj producenta</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group mb-3">
+                <label class="control-label">Nazwa</label>
+                <input name="nazwa" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapisz" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-secondary">Powrót</a>
+            </div>
+        </form>
+    </div>
+</div>

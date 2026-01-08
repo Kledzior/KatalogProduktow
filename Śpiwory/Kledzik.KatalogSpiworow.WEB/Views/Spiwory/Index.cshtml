@@ -1,0 +1,39 @@
+﻿@using Kledzik.KatalogSpiworow.Interfaces
+@model IEnumerable<ISpiwor>
+
+@{
+    ViewData["Title"] = "Lista Śpiworów";
+}
+
+<h1>Katalog Śpiworów</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Dodaj nowy śpiwór</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Temperatura</th>
+            <th>Masa (g)</th>
+            <th>Cena (zł)</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Model</td>
+                <td>@item.Temperatura &deg;C</td>
+                <td>@item.Masa</td>
+                <td>@item.Cena</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edytuj</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

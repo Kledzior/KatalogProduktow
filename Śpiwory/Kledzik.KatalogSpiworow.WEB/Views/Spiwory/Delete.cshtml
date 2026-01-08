@@ -1,0 +1,32 @@
+﻿@using Kledzik.KatalogSpiworow.Interfaces
+@model ISpiwor
+
+@{
+    ViewData["Title"] = "Usuń śpiwór";
+}
+
+<h1>Usuwanie</h1>
+
+<h3>Czy na pewno chcesz usunąć ten śpiwór?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Model</dt>
+        <dd class="col-sm-10">@Model.Model</dd>
+
+        <dt class="col-sm-2">Temperatura</dt>
+        <dd class="col-sm-10">@Model.Temperatura &deg;C</dd>
+
+        <dt class="col-sm-2">Masa</dt>
+        <dd class="col-sm-10">@Model.Masa g</dd>
+
+        <dt class="col-sm-2">Cena</dt>
+        <dd class="col-sm-10">@Model.Cena zł</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Powrót do listy</a>
+    </form>
+</div>

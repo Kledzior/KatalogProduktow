@@ -1,0 +1,13 @@
+﻿@using Kledzik.KatalogSpiworow.Interfaces
+@model IProducent
+@{
+    ViewData["Title"] = "Usuwanie";
+}
+
+<h1>Usuń producenta</h1>
+<h3>Czy na pewno chcesz usunąć: @Model.Nazwa?</h3>
+<form asp-action="Delete">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <input type="submit" value="Usuń" class="btn btn-danger" /> |
+    <a asp-action="Index" class="btn btn-secondary">Powrót</a>
+</form>
